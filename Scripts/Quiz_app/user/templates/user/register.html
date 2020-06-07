@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+	<div class="container col-sm-5" style="margin-top: 5%;
+	padding:10px 25px 10px 25px;
+	border: 1px solid beige;
+	text-align: center;
+	border-radius: 20px;">
+		<form method="POST">
+			{% csrf_token %}
+			<div class="row" style="background-color: black"><h1 style="color:white;margin-left: 35%;">Register</h1></div>
+				{{ form|crispy }}
+			</fieldset>
+			<div class="form-group">
+			<button id="cam1" type="submit"><b>Sign Up</b></button>
+				<br>
+				<br>
+				<small>Already have an account?</small>
+				<a href="{% url 'login' %}">Sign in</a>
+				<br>
+				<br>
+			</div>
+		</form>
+	</div>
+{% endblock content %}

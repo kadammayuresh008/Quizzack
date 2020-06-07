@@ -1,0 +1,45 @@
+#cam1{
+	 border-radius: 20px;
+	 padding:5px 10px 5px 10px;
+}
+#login_main{
+	margin-top: 5%;
+	margin-left: 28%;
+	margin-right: 28%;
+	padding:10px 10px 5px 5px;
+	border: 5px solid black;
+	text-align: center;
+	border-radius: 20px;
+}
+
+
+#cam2 {
+    border-radius: 20px;
+    padding:5px 10px 5px 10px;
+}
+
+input{
+	border-radius: 20px;
+    padding:5px 10px 5px 10px;
+}
+
+#forms{
+	margin-top: 5%;
+	margin-left: 28%;
+	margin-right: 28%;
+	padding:10px 10px 5px 5px;
+	border: 5px solid black;
+	text-align: center;
+	border-radius: 20px;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+img{
+	width:200px;
+	height:150px;
+	border-radius: 20px;
+}
+

@@ -1,0 +1,45 @@
+{%extends "blog/base.html" %}
+{% block content %}
+{% load static%}
+<div class="container col-sm-10">
+	<br>
+	<br>
+        <div class="container" style="border:1px solid beige;text-align: center;">
+            <h1>About Quizzy</h1>
+            <p>Quizzy offers you a wide range of trivia covering a quality amount of topics. Quizzy covers topics like History, Mathematics, Geography, Sports, Politics, Science, etc. You can choose from your favorite topics, play and enhance your general knowledge anytime, anyday. Also, you can create your own quizzes and challenge your family, friends and loved ones. So buckle up your seats and get ready to put yourselves to test.</p>
+        </div>
+<br>
+	<br>
+        <div class="container2" style="border:1px solid beige;text-align: center;">
+            <h1>Our Team</h1>
+            <div class="row">
+            	<div class="col-sm-4" style="text-align: center;">
+            		</div>
+            <div class="col-sm-4" style="text-align: center;">
+            	<img src="{% static 'blog/static_image/default.jpg'%}" alt="Person Image" style="border-radius:50%;border:2px solid black;height:150px;width:150px;">
+            	<p><b>Mayuresh Kadam</b></p></div>
+            </div>
+            <div class="col-sm-4" style="text-align: center;">
+         </div>
+           </div>
+        </div>
+<br>
+	<br>
+        <div class="container3" style="border:1px solid beige;text-align: center;">
+            <h1>Contact Us</h1>
+            <div class="row">
+            <div class="col-sm-6" style="text-align: center;">
+            		<p>Email us at quizzyteam@gmail.com</p>
+            </div>
+          
+            <div class="col-sm-6" style="text-align: center;">
+            		 <p>Telephone No.: 2522621715</p></div>
+            </div>
+              </div>
+</div>
+<div>
+        <footer style="text-align: center;background-color: black;">
+            <p style="color:white"> Copyright © 2020-21 Quizzy, Inc </p>
+        </footer>
+</div>
+{% endblock content %}
