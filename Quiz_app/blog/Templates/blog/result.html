@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% block title%}
+  Result
+{% endblock %}
+
+{% block content%}
+<div class="container col-sm-5" style="padding:2px;text-align: center;margin-top: 5%;border-radius: 20px;border: 2px solid beige;border-radius:20px;">
+  <div>
+    <h1 class="bg-dark" style="color: white;padding:10px;border-radius:5px;"><b>Scorecard</b></h1>
+    <br>
+    <p>
+      Total number of question answered:{{total}}</p>
+      <p  style="color: green; ">Total number of correct answer:{{score}}</p>
+       <p style="color: red;">Total number of wrong answer:{{sub}}</p>
+       <p>Your Score is: {{ score }} / {{ total }}
+    </p>
+    <p class="center"
+    {% if eff < 50.0 %} style="color:red"
+    {% else %} style="color:green"
+    {% endif %}
+    >
+      Your Efficiency is: {{ eff }} %
+    </p>
+  </div>
+</div>
+<br>
+<br>
+
+{% endblock%}

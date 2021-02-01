@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<form action="./quiz_page" method="POST">
+  <div class="container col-sm-4" style="text-align: center;border:2px solid beige;margin-top:5%;border-radius:20px;">
+  <h1 class="bg-dark" style="color:white;">Quiz Topics</h1>
+  <br>
+
+  {% for que in quizs %}
+   <div class="row" style="margin-left: 35%;padding: 2px;">
+      <h5><b>
+      <input type="radio" name="que" value="{{ que }}">
+      {{ que }}<br>
+      </b>
+    </h5>
+    </div>  
+     {% endfor %}
+  {% csrf_token %}
+  <br>
+  <div class="row" style="margin-left: 35%;">
+    <div class="col-xs-2">
+      <button type="submit" class="btn btn-block btn-success btn-md">Attempt Quiz</button>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+</form>
+{% endblock content %}

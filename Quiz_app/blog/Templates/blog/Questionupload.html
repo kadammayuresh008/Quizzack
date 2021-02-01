@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<br>
+<div class="row">
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    <h2> Add question</h2>
+<form action="./Uploaded" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Enter the Question</label>
+        <input type="Text" class="form-control" id="exampleInputText1" name="Question">
+      </div>
+      <div class="row">
+      <div class="col-sm-4">
+        <label for="exampleInputText1" class="form-label">Enter the First option.</label>
+        <input type="Text" class="form-control" id="exampleInputText1" name="option">
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+        <label for="exampleInputText1" class="form-label">Enter the second option.</label>
+        <input type="Text" class="form-control" id="exampleInputText1" name="option1">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+        <label for="exampleInputText1" class="form-label">Enter the Third option.</label>
+        <input type="Text" class="form-control" id="exampleInputText1" name="option2">
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+        <label for="exampleInputText1" class="form-label">Enter the Fourth option.</label>
+        <input type="Text" class="form-control" id="exampleInputText1" name="option3"> 
+      </div>
+    </div>
+      <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Enter Answer.</label>
+        <input type="Text" class="form-control" id="exampleInputText1" name="Answer">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Enter Question Category.</label>
+        <input type="Text" class="form-control" id="exampleInputText1" name="Category">
+      </div>
+      <div>
+      <button type="submit" class="btn btn-block btn-success btn-md">Upload Question</button>
+    </div>
+    <br>
+    <br>
+</form>
+</div>
+</div>
+{% endblock content %}

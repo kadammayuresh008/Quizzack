@@ -1,0 +1,57 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<form action="./result" method="POST">
+  <div style="text-align: center"><h1><b>TOPIC</b>:{{score}}</h1></div>
+  {% for que in quizs%}
+  <div class="container" style="border-bottom
+  :2px solid black;border-radius: 20px;margin-top:2%;">
+    <div class="col-md-10">
+      <p><b>{{ forloop.counter }}. {{ que.question }}</b></p>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <p>
+      <input type="radio" name="{{ que.id }}" value="{{ que.option1 }}">
+      {{ que.option1 }}
+    </p>
+    </div>
+    <div class="col-md-3">
+      <p>
+      <input type="radio" name="{{ que.id }}" value="{{ que.option2 }}">
+      {{ que.option2 }}
+    </p>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <p>
+      <input type="radio" name="{{ que.id }}" value="{{ que.option3 }}">
+      {{ que.option3 }}
+    </p>
+    </div>
+    <div class="col-md-3">
+      <p>
+      <input class="form_control" type="radio" name="{{ que.id }}" value="{{ que.option4 }}">
+      {{ que.option4 }}
+    </p>
+    </div>
+    </div>
+  <div class="py-3"></div>
+  {% endfor %}
+  {% csrf_token %}
+  <br>
+  <div class="row">
+    <div class="col-sm-5">
+    </div>
+    <div class="col-xs-2">
+      <button type="submit" class="btn btn-block btn-success btn-md">Submit</button>
+    </div>
+  </div>
+  <br>
+  <br>
+</form>
+</div>
+</div>
+{% endblock content %}
