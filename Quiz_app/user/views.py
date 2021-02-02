@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateFrom
+from blog.models import Attempts
 
 def register(request):
 	if request.method == 'POST':
@@ -22,8 +23,14 @@ def profile(request):
 	u_form = UserUpdateForm()
 	p_form = ProfileUpdateFrom()
 
+	a=Attempts.objects.filter(qAttempter=request.user).order_by('attemptedtime')
+	if(len(a)>5):
+		attempts=a[len(a)-5:]
+	else:
+		attempts=a
 	context = {
 	'u_form': u_form,
-	'p_form':p_form
+	'p_form':p_form,
+	'attempts':attempts
 	}
 	return render(request,'user/profile.html',context)

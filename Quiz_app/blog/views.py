@@ -1,8 +1,11 @@
 from django.shortcuts import render,HttpResponse
-from .models import quiz
+from .models import quiz,Attempts,Test
 from user.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+
+quizList=[]
+testId=0
 
 def home(request):
 	return render(request,'blog/home.html')
@@ -34,11 +37,12 @@ def quiz_page(request):
 	context1={
 	'score':x[0],
 	 'quizs':x,
+	 'totalq':len(x),
+	 'category':datas['que'][0],
 	}
 	return render(request,'blog/quiz_page.html',context1)
 
 def quiz_page_result(request):
-	print("result page")
 	if request.method=='POST':
 		data=request.POST
 		datas= dict(data)
@@ -66,6 +70,10 @@ def quiz_page_result(request):
 	'eff':eff,
 	'sub':total-score,
 	}
+	# print(score,total,eff)
+	attempts=Attempts(qAttempter=request.user,q_name=datas['category'][0],totalQue=datas['length'][0], attemptedQue=total, 
+	correct=score,accuracy=eff)
+	attempts.save()
 	return render(request,'blog/result.html',context)
 
 
@@ -87,3 +95,42 @@ def Uploaded(request):
 		question.save()
 	messages.success(request,f'Question added successfully.')
 	return render(request,'blog/Questionupload.html')
+
+
+def quiz_upload_cat(request):
+	return render(request,'blog/quiz_upload_cat.html')
+
+def quiz_upload(request):
+	global quizList
+	if(request.method=="POST"):
+		Category=request.POST.get("Category")
+		quizList.append(Category)
+	print(quizList)
+	return render(request,'blog/quiz_upload.html')
+
+def add_quiz_question(request):
+	global quizList
+	global testId
+	if(request.method=="POST"):
+		Question=request.POST.get("Question")
+		Option1=request.POST.get("option")
+		Option2=request.POST.get("option1")
+		Option3=request.POST.get("option2")
+		Option4=request.POST.get("option3")
+		Answer=request.POST.get("Answer")
+		Button=request.POST.get("Submit")
+		if(Button=='Add'):
+			quizList.append([Question,Option1,Option2,Option3,Option4,Answer])
+			messages.success(request,"Question added Successfully.")
+		else:
+			testId+=1
+			quizList.append([Question,Option1,Option2,Option3,Option4,Answer])
+			for i in range(1,len(quizList)):
+				questions=Test(testId=testId,question=quizList[i][0],option1=quizList[i][1],option2=quizList[i][2],
+				option3=quizList[i][3],option4=quizList[i][4],answer=quizList[i][4],catogaries=quizList[0],student=request.user)
+				# print(quizList[i])
+				questions.save()
+			messages.success(request,"Quiz submitted Successfully.")
+			quizList=[]
+		print(quizList)
+	return render(request,'blog/quiz_upload.html')

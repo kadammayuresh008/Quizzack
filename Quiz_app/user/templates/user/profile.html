@@ -2,18 +2,23 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="py-3"></div>
-    <div class="content-section container col-sm-6 shadow-lg" style="border-radius:20px;border: 1px solid beige;">
-      <div class="row" style="background-color: black"><h1 style="color:white;margin-left: 35%;">Profile</h1></div>
+    <div class="content-section container shadow-lg" style="border-radius:20px;border: 1px solid beige;">
+      <div class="row bg-dark"><h1 style="color:white;margin-left: 44%;">Profile</h1></div>
       <div class="py-3"></div>
-      <div class="media">
-         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width:150px;height:200px;border:2px solid black">
-         <div class="media-body" style="margin-left:20%;">
+      <div class="row">
+      <div class="col-sm-6" >
+          <div>
+         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width:200px;height:200px;border:2px solid black">
+        </div>
+        <br>
+         <div>
           <h3>Name:</h3>
           <p style="border:1px solid black;border-radius:5px;padding:5px;">{{ user.username }}</p>
           <h3>Email ID:</h3>
           <p style="border:1px solid black;border-radius:5px;padding:5px;">{{ user.email }}</p>
         </div>
          </div>
+         <div class="col-sm-6">
       <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
@@ -25,6 +30,51 @@
               <button class="btn btn-outline-info" type="submit">Update</button>
           </div>
       </form>
+    </div>
+    </div>
+    </div>
+    <div class="py-3"></div>
+    <div class="container">
+        <h1>My Recent Attempts</h1>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Attempt no.</th>
+                <th scope="col">Quiz Name</th>
+                <th scope="col">Total question</th>
+                <th scope="col">Attempted</th>
+                <th scope="col">Correct</th>
+                <th scope="col">Accuracy</th>
+                <th scope="col">Result</th>
+              </tr>
+            </thead>
+            <tbody >
+                {% for i in attempts%}
+                {% if i.accuracy >= 50.0 %}
+                <tr>
+                    <th scope="row">{{i.attemptId}}</th>
+                    <td>{{i.q_name}}</td>
+                    <td>{{i.totalQue}}</td>
+                    <td>{{i.attemptedQue}}</td>
+                    <td>{{i.correct}}</td>
+                    <td>{{i.accuracy}}</td>
+                    <td class="text-success">Passed</td>
+                  </tr>
+                  {% else %}
+                  <tr >
+                    <th scope="row">{{i.attemptId}}</th>
+                    <td>{{i.q_name}}</td>
+                    <td>{{i.totalQue}}</td>
+                    <td>{{i.attemptedQue}}</td>
+                    <td>{{i.correct}}</td>
+                    <td>{{i.accuracy}}</td>
+                    <td class="text-danger">Failed</td>
+                  </tr>
+                  {% endif  %}
+                {% endfor %}
+            </tbody>
+          </table>
+         
     </div>
     <div class="py-3"></div>
 {% endblock content %}

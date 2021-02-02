@@ -9,5 +9,8 @@ urlpatterns = [
     path('quiz_catalog/',views.catogaries, name='blog.quiz_catlog'),
     path('questionUpload/',views.questionUpload, name='blog.questionUpload'),
     path('questionUpload/Uploaded',views.Uploaded, name='blog.Uploaded'),
+    path('quiz_upload_cat/',views.quiz_upload_cat, name='blog.quiz_upload_cat'),
+    path('quiz_upload_cat/Upload',views.quiz_upload, name='blog.quiz_upload'),
+    path('quiz_upload_cat/Uploaded',views.add_quiz_question, name='blog.add_quiz_question'),
 ]
 
