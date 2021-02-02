@@ -3,7 +3,7 @@
 {% block content %}
 <div class="py-3"></div>
     <div class="content-section container shadow-lg" style="border-radius:20px;border: 1px solid beige;">
-      <div class="row bg-dark"><h1 style="color:white;margin-left: 44%;">Profile</h1></div>
+      <div class="row bg-info"><h1 style="color:white;margin-left: 44%;">Profile</h1></div>
       <div class="py-3"></div>
       <div class="row">
       <div class="col-sm-6" >
@@ -36,8 +36,11 @@
     <div class="py-3"></div>
     <div class="container">
         <h1>My Recent Attempts</h1>
+        {% ifequal length 0 %}
+        <h5>Quiz not attempted yet.</h5>
+        {% else %}
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="thead bg-info text-light">
               <tr>
                 <th scope="col">Attempt no.</th>
                 <th scope="col">Quiz Name</th>
@@ -74,7 +77,7 @@
                 {% endfor %}
             </tbody>
           </table>
-         
+          {% endifequal %}
     </div>
     <div class="py-3"></div>
 {% endblock content %}

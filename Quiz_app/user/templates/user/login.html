@@ -10,18 +10,20 @@
 		<form method="POST">
 			{% csrf_token %}
 			<fieldset class="form-group">
-				<div class="row" style="background-color: black"><h1 style="color:white;margin-left: 35%;">Login</h1></div>
+				<div class="row bg-info"><h1 style="color:white;margin-left: 40%;">Login</h1></div>
+				<br>
 				{{ form|crispy }}
 			</fieldset>
 			<div class="form-group">
-			<button id="cam1" type="submit"><b>Login</b></button>
+			<button class="btn btn-outline-info" type="submit"><b>Login</b></button>
 				<br>
 				<br>
 				<small>Do you need an account?</small>
-				<a href="{% url 'register' %}" >Sign Up</a>
+				<a class="text-info" href="{% url 'register' %}" >Sign Up</a>
 				<br>
 				<br>
 			</div>
 		</form>
+	</div>
 	</div>
 {% endblock content %}

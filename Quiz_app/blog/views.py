@@ -3,6 +3,7 @@ from .models import quiz,Attempts,Test
 from user.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 quizList=[]
 testId=0
@@ -10,9 +11,11 @@ testId=0
 def home(request):
 	return render(request,'blog/home.html')
 
+@login_required
 def about(request):
 	return render(request,'blog/about.html')
 
+@login_required
 def catogaries(request):
 	y= quiz.objects.all().values('catogaries')
 	x=list(y)
@@ -25,6 +28,7 @@ def catogaries(request):
 	}
 	return render(request,'blog/quiz_catlog.html',context)
 
+@login_required
 def quiz_page(request):
 	if request.method=='POST':
 		data=request.POST
@@ -42,6 +46,7 @@ def quiz_page(request):
 	}
 	return render(request,'blog/quiz_page.html',context1)
 
+@login_required
 def quiz_page_result(request):
 	if request.method=='POST':
 		data=request.POST
@@ -76,10 +81,11 @@ def quiz_page_result(request):
 	attempts.save()
 	return render(request,'blog/result.html',context)
 
-
+@login_required
 def questionUpload(request):
 	return render(request,'blog/Questionupload.html')
 
+@login_required
 def Uploaded(request):
 	if(request.method=="POST"):
 		Question=request.POST.get("Question")
@@ -96,10 +102,11 @@ def Uploaded(request):
 	messages.success(request,f'Question added successfully.')
 	return render(request,'blog/Questionupload.html')
 
-
+@login_required
 def quiz_upload_cat(request):
 	return render(request,'blog/quiz_upload_cat.html')
 
+@login_required
 def quiz_upload(request):
 	global quizList
 	if(request.method=="POST"):
@@ -108,6 +115,7 @@ def quiz_upload(request):
 	print(quizList)
 	return render(request,'blog/quiz_upload.html')
 
+@login_required
 def add_quiz_question(request):
 	global quizList
 	global testId

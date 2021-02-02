@@ -1,7 +1,6 @@
 {% extends "blog/base.html" %}
 {% block content %}
-<br>
-<div class="row">
+<div class="row col-sm-12">
 <div class="col-sm-3"></div>
 <div class="col-sm-6">
     <h2> Add Quiz</h2>
@@ -10,11 +9,15 @@
     <div class="mb-3">
         <label for="exampleInputText1" class="form-label">Enter the Category/Name</label>
         <input type="Text" class="form-control" id="exampleInputText1" name="Category" required>
+    </div >
+    <div class="row mb-3">
+        <div class="col-sm-4"></div>
+      <div class="col-sm-4" style="text-align:center">
+      <button type="submit" class="btn btn-outline-info">Upload</button>
     </div>
-      <button type="submit" class="btn btn-block btn-success btn-md">Submit</button>
-    </div>
-    <br>
-    <br>
+  </div> 
+    <div class="py-5"></div>
+    <div class="py-5"></div>
 </form>
 </div>
 </div>

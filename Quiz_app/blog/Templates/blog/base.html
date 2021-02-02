@@ -9,62 +9,58 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
-    <title>
 			{%if title%}
 				<title>Quiz App-{{title}}</title>
 			{%else%}
 				<title>Quiz App</title>
 			{% endif %}
-		</title>
 	</head>
-	<body>
-		<header>
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <h1 style="color:white">QUIZZY</h1>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'blog.home'%}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'blog.about'%}">About </a>
-      </li>
-      {% if user.is_authenticated %}
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'blog.quiz_catlog'%}">Quiz</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'blog.questionUpload'%}">Add question</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'blog.quiz_upload_cat'%}">Add quiz</a>
-      </li>
-      {% endif %}
-    </ul>
-  </div>
-   <div>
-    <ul class="navbar-nav mr-auto">
-    {% if user.is_authenticated %}
-    <li class="nav-item active">
-      <a href="{% url 'profile' %}" class="nav-link" rel="stylesheet">Profile</a>
-    </li>
-      <li class="nav-item active">
-      <a href="{% url 'logout' %}" class="nav-link" rel="stylesheet">LogOut</a>
-    </li>
-    {% else %}
-    <li class="nav-item active">
-      <a href="{% url 'login' %}" class="nav-link" rel="stylesheet">LogIn </a>
-    </li>
-      <li class="nav-item active">
-      <a href="{% url 'register'%}"  class="nav-link" rel="stylesheet">Register</a>
-    </li>
-    {% endif %}
-  </ul>
-</div>
-</div>
-</nav>
-		</header>
-	<div>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+      <div>
+      <h1><a class="navbar-nav nav-link text-light" style="font-family:Dancing Script" href="{% url 'blog.home'%}">QUIZZY<span class="sr-only">(current)</span></a></h1>
+    </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          {% if user.is_authenticated %}
+          <li class="nav-item active" style="margin-top: 4%;">
+            <a class="nav-link" href="{% url 'blog.about'%}">About </a>
+          </li>
+          <li class="nav-item active" style="margin-top: 4%;">
+            <a class="nav-link" href="{% url 'blog.quiz_catlog'%}">Quiz</a>
+          </li>
+          <li class="nav-item active" style="margin-top: 4%;">
+            <a class="nav-link" href="{% url 'blog.questionUpload'%}">Add question</a>
+          </li>
+          <li class="nav-item active" style="margin-top: 4%;">
+            <a class="nav-link" href="{% url 'blog.quiz_upload_cat'%}">Add quiz</a>
+          </li>
+          {% endif %}
+        </ul>
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item active">
+          <a href="{% url 'profile' %}" class="nav-link" rel="stylesheet">Profile</a>
+        </li>
+          <li class="nav-item active">
+          <a href="{% url 'logout' %}" class="nav-link" rel="stylesheet">LogOut</a>
+        </li>
+        {% else %}
+        <li class="nav-item active">
+          <a href="{% url 'login' %}" class="nav-link" rel="stylesheet">LogIn </a>
+        </li>
+          <li class="nav-item active">
+          <a href="{% url 'register'%}"  class="nav-link" rel="stylesheet">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    </nav>
+    <br>
+	<div class="container">
     {% if messages %}
     {% for message in messages%}
     <div class="alert alert-{{message.tags}}">
@@ -74,9 +70,18 @@
     {% endif %}
 		{% block content %}
 		{% endblock %}
-	</div>
-	 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  </div>
+  <div class="py-3"></div>
+  <div>
+    <footer class="bg-info row" style="text-align: center">
+      <!-- <div><p class="ml-auto" style="color:white;padding:20px;"> Copyright © 2020-21 Quizzy, Inc </p></div>
+      <div><p class="mr-auto" style="color:white;padding:20px;"> Designed by Mayuresh Kadam </p></div> -->
+      <p class="ml-auto" style="color:white;padding:20px;"> Copyright © 2020-21 Quizzy, Inc </p>
+      <p class="mr-auto" style="color:white;padding:20px;"> Designed by Mayuresh Kadam </p>
+      </footer>
+  </div>
+  </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	</body>
 	</html>

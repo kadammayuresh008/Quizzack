@@ -31,6 +31,7 @@ def profile(request):
 	context = {
 	'u_form': u_form,
 	'p_form':p_form,
-	'attempts':attempts
+	'attempts':attempts,
+	'length':len(attempts)
 	}
 	return render(request,'user/profile.html',context)
