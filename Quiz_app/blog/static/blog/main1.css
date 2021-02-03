@@ -6,17 +6,13 @@
    background:#6cf;
 }
 
-/* #output{
-    border: none;
-} */
-
 
 .card{
    border-radius: 4px;
    background: #fff;
    box-shadow: 0 15px 15px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-    padding:20px;
+    /* padding:20px; */
     cursor: pointer;
     width:20rem;
     height: 20rem;
@@ -29,7 +25,7 @@
  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
-@media (min-width: 1200px) {  
+@media only screen and (max-width: 400px) {  
     .card {
     border-radius: 4px;
    background: #fff;
@@ -37,12 +33,13 @@
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding:20px;
     cursor: pointer;
-    width:20rem;
-    height: 20rem;
+    width:15rem;
+    height: 25rem;
+    margin-bottom: 10px;
     } /*1rem = 16px*/
 
     .card:hover{
         transform: scale(1.05);
      box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
     }
-  }
+}

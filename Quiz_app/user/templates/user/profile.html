@@ -54,7 +54,7 @@
             <tbody >
                 {% for i in attempts%}
                 {% if i.accuracy >= 50.0 %}
-                <tr>
+                <tr style="background-color: rgb(216, 239, 245)">
                     <th scope="row">{{i.attemptId}}</th>
                     <td>{{i.q_name}}</td>
                     <td>{{i.totalQue}}</td>
@@ -64,7 +64,7 @@
                     <td class="text-success">Passed</td>
                   </tr>
                   {% else %}
-                  <tr >
+                  <tr style="background-color: rgb(216, 239, 245)">
                     <th scope="row">{{i.attemptId}}</th>
                     <td>{{i.q_name}}</td>
                     <td>{{i.totalQue}}</td>

@@ -6,10 +6,10 @@
   <!-- {{que.Quiz_cover}} -->
     <div style="padding:2px;">
     <a  href="{% url 'blog.quiz_page' que%}" style="text-decoration:None;color: black;">
-      <div class="card" style="width: 18rem;height:16rem;margin:10px">
-        <img class="card-img-top" src="https://wallpapercave.com/wp/wp4961946.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h3 class="card-title">{{que}}</h3>
+      <div class="card" style="width: 18rem;height:15rem;margin:10px">
+        <img class="card-img-top" style="width:285px;" src="https://wallpapercave.com/wp/wp4961946.jpg" alt="Card image cap">
+        <div class="card-body rounded" style="background-color: rgb(216, 239, 245)">
+          <h3 class="card-title">{{que|capfirst}}</h3>
         </div>
         </div>
       </a>

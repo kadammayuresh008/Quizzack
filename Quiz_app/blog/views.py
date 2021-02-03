@@ -27,8 +27,6 @@ def catogaries(request):
 	images=[]
 	for i in z:
 		image= Test.objects.filter(catogaries=i).values('Quiz_cover')
-		print(list(image))
-		print("//////////////////////////////////////////////")
 	context={
 	'quizs' :z,
 	}
