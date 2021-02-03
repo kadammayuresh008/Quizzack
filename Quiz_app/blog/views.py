@@ -4,6 +4,7 @@ from user.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from Quiz_app.settings import MEDIA_URL 
 
 quizList=[]
 testId=0
@@ -23,26 +24,27 @@ def catogaries(request):
 	for i in x:
 		a.append(i['catogaries'])
 	z=set(a)
+	images=[]
+	for i in z:
+		image= Test.objects.filter(catogaries=i).values('Quiz_cover')
+		print(list(image))
+		print("//////////////////////////////////////////////")
 	context={
 	'quizs' :z,
 	}
 	return render(request,'blog/quiz_catlog.html',context)
 
 @login_required
-def quiz_page(request):
-	if request.method=='POST':
-		data=request.POST
-		datas= dict(data)
-		try:
-			x=quiz.objects.filter(catogaries=datas['que'][0])
-		except:
-			messages.success(request,f'Category not selected.')
-			return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+def quiz_page(request,cat):
+	try:
+		x=quiz.objects.filter(catogaries=cat)
+	except:
+		messages.success(request,f'Category not selected.')
+		return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 	context1={
-	'score':x[0],
 	 'quizs':x,
 	 'totalq':len(x),
-	 'category':datas['que'][0],
+	 'category':cat,
 	}
 	return render(request,'blog/quiz_page.html',context1)
 
@@ -111,7 +113,8 @@ def quiz_upload(request):
 	global quizList
 	if(request.method=="POST"):
 		Category=request.POST.get("Category")
-		quizList.append(Category)
+		Image=request.FILES["image"]
+		quizList.append([Category,Image])
 	print(quizList)
 	return render(request,'blog/quiz_upload.html')
 
@@ -130,15 +133,18 @@ def add_quiz_question(request):
 		if(Button=='Add'):
 			quizList.append([Question,Option1,Option2,Option3,Option4,Answer])
 			messages.success(request,"Question added Successfully.")
+			return render(request,'blog/quiz_upload.html')
 		else:
 			testId+=1
 			quizList.append([Question,Option1,Option2,Option3,Option4,Answer])
 			for i in range(1,len(quizList)):
-				questions=Test(testId=testId,question=quizList[i][0],option1=quizList[i][1],option2=quizList[i][2],
-				option3=quizList[i][3],option4=quizList[i][4],answer=quizList[i][4],catogaries=quizList[0],student=request.user)
-				# print(quizList[i])
-				questions.save()
+				location= "media\QuizCover\%s" %quizList[0][1]
+				Imagefile = open(location)
+				ques=Test(testId=testId,Quiz_cover=Imagefile,question=quizList[i][0],option1=quizList[i][1],option2=quizList[i][2],
+				option3=quizList[i][3],option4=quizList[i][4],answer=quizList[i][4],catogaries=quizList[0][0],
+				student=request.user)
+				ques.save()
 			messages.success(request,"Quiz submitted Successfully.")
+			print(quizList)
 			quizList=[]
-		print(quizList)
-	return render(request,'blog/quiz_upload.html')
+			return render(request,'blog/quiz_upload_cat.html')

@@ -16,6 +16,15 @@
 			{% endif %}
 	</head>
   <body>
+    <script>
+      var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+          URL.revokeObjectURL(output.src) // free memory
+        }
+      };
+    </script>
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
       <div>
       <h1><a class="navbar-nav nav-link text-light" style="font-family:Dancing Script" href="{% url 'blog.home'%}">QUIZZY<span class="sr-only">(current)</span></a></h1>
@@ -72,12 +81,12 @@
 		{% endblock %}
   </div>
   <div class="py-3"></div>
-  <div>
+  <div style="bottom:0;right:0;left:0;height:0;">
     <footer class="bg-info row" style="text-align: center">
       <!-- <div><p class="ml-auto" style="color:white;padding:20px;"> Copyright © 2020-21 Quizzy, Inc </p></div>
       <div><p class="mr-auto" style="color:white;padding:20px;"> Designed by Mayuresh Kadam </p></div> -->
-      <p class="ml-auto" style="color:white;padding:20px;"> Copyright © 2020-21 Quizzy, Inc </p>
-      <p class="mr-auto" style="color:white;padding:20px;"> Designed by Mayuresh Kadam </p>
+      <p class="ml-auto" style="color:white;padding:5px;"> Copyright © 2020-21 Quizzy, Inc </p>
+      <p class="mr-auto" style="color:white;padding:5px;"> Designed by Mayuresh Kadam </p>
       </footer>
   </div>
   </body>

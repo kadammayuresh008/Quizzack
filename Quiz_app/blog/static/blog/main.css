@@ -1,7 +1,7 @@
 #cam1{
 	 border-radius: 20px;
 	 padding:5px 10px 5px 10px;
-}
+};
 #login_main{
 	margin-top: 5%;
 	margin-left: 28%;
@@ -10,18 +10,18 @@
 	border: 5px solid black;
 	text-align: center;
 	border-radius: 20px;
-}
+};
 
 
 #cam2 {
     border-radius: 20px;
     padding:5px 10px 5px 10px;
-}
+};
 
 input{
 	border-radius: 20px;
     padding:5px 10px 5px 10px;
-}
+};
 
 #forms{
 	margin-top: 5%;
@@ -31,17 +31,18 @@ input{
 	border: 5px solid black;
 	text-align: center;
 	border-radius: 20px;
-}
+};
 
 body{
-    font-family: sans-serif;
-}
+	font-family: sans-serif;
+	background-color: black;
+};
 
 img{
 	width:200px;
 	height:150px;
 	border-radius: 20px;
-}
+};
 
 .footer {
 	position:absolute;
@@ -50,3 +51,22 @@ img{
 	height:60px;   /* Height of the footer */
 	background:#6cf;
  }
+
+ /* #output{
+	 border: none;
+ } */
+
+
+ .card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+}
+
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
