@@ -17,17 +17,29 @@
 	</head>
   <body>
     <script>
+      // var loadFile = function(event) {
+      //   var output = document.getElementById('output');
+      //   output.src = URL.createObjectURL(event.target.files[0]);
+      //   output.onload = function() {
+      //     URL.revokeObjectURL(output.src) // free memory
+      //   }
+      // };
       var loadFile = function(event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-        output.onload = function() {
-          URL.revokeObjectURL(output.src) // free memory
-        }
-      };
+    var output = document.getElementById('output');
+    output.style.height="250px"
+    output.style.width="300px"
+    output.style.border="thin solid black"
+    output.style.borderRadius="1em"
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+      
     </script>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info sticky-top">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-info sticky-top">
       <div>
-      <h1><a class="navbar-nav nav-link text-light" style="font-family:Dancing Script" href="{% url 'blog.home'%}">QUIZZY<span class="sr-only">(current)</span></a></h1>
+      <h3><a class="navbar-nav nav-link text-light" style="font-family:Dancing Script" href="{% url 'blog.home'%}">QUIZZY<span class="sr-only">(current)</span></a></h3>
     </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -35,16 +47,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           {% if user.is_authenticated %}
-          <!-- <li class="nav-item active" style="margin-top: 4%;">
-            <a class="nav-link" href="{% url 'blog.about'%}">About </a>
-          </li> -->
-          <li class="nav-item active" style="margin-top: 4%;">
+          <li class="nav-item active">
             <a class="nav-link" href="{% url 'blog.quiz_catlog'%}">Quiz</a>
           </li>
-          <li class="nav-item active" style="margin-top: 4%;">
+          <li class="nav-item active">
             <a class="nav-link" href="{% url 'blog.questionUpload'%}">Add question</a>
           </li>
-          <li class="nav-item active" style="margin-top: 4%;">
+          <li class="nav-item active">
             <a class="nav-link" href="{% url 'blog.quiz_upload_cat'%}">Add quiz</a>
           </li>
           {% endif %}
@@ -85,7 +94,7 @@
       <p  style="color:white;"> Copyright © 2020-21 Quizzy, Inc </p>
       <!-- <p  style="color:white;"> Email : quizzyteam@gmail.com </p>
       <p style="color:white;"> Telephone No : 2522621715</p> -->
-      <p  style="color:white;"> Designed by Mayuresh Kadam </p>
+      <p  style="color:white;"> Developed by Mayuresh Kadam </p>
       </footer>
   </div>
   </body>

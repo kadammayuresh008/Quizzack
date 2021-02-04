@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div class="row col-sm-12">
+<div class="col-sm-3"></div>
+<div class="col-sm-6 shadow p-3 mb-5 bg-white rounded">
+    <h2> Add Quiz</h2>
+<form action="./add_cover_photo" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="exampleInputImage" class="form-label">Add Coverpage Image</label>
+    <br>
+    <div class="row mb-3">
+        <div style="text-align: center;">
+          <input type="file" name="image" accept="image/*" onchange="loadFile(event)"/>
+        </div>
+        <div>
+        <img id="output">
+      </div>
+</div>
+<div class="py-1"></div>
+    <div class="row mb-3">
+        <div class="col-sm-4"></div>
+      <div class="col-sm-4" style="text-align:center">
+      <button type="submit" class="btn btn-outline-info">Upload</button>
+    </div>
+  </div> 
+    <div class="py-5"></div>
+    <div class="py-5"></div>
+</form>
+</div>
+</div>
+{% endblock content %}

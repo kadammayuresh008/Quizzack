@@ -22,11 +22,18 @@ def catogaries(request):
 	x=list(y)
 	a=[]
 	for i in x:
-		a.append(i['catogaries'])
-	z=set(a)
-	images=[]
-	for i in z:
-		image= Test.objects.filter(catogaries=i).values('Quiz_cover')
+		image= Test.objects.filter(catogaries=i['catogaries']).values('Quiz_cover')
+		ans=list(image)
+		try:
+			a.append([i['catogaries'],ans[0]['Quiz_cover']])
+		except:
+			a.append([i['catogaries'],'homepage3.jpg'])
+	z=[]
+	for i in a:
+		if(i not in z):
+			z.append(i)
+		else:
+			continue
 	context={
 	'quizs' :z,
 	}
@@ -111,9 +118,8 @@ def quiz_upload(request):
 	global quizList
 	if(request.method=="POST"):
 		Category=request.POST.get("Category")
-		Image=request.FILES["image"]
-		quizList.append([Category,Image])
-	print(quizList)
+		if(len(quizList)==0):
+			quizList.append([Category])
 	return render(request,'blog/quiz_upload.html')
 
 @login_required
@@ -135,14 +141,18 @@ def add_quiz_question(request):
 		else:
 			testId+=1
 			quizList.append([Question,Option1,Option2,Option3,Option4,Answer])
-			for i in range(1,len(quizList)):
-				location= "media\QuizCover\%s" %quizList[0][1]
-				Imagefile = open(location)
-				ques=Test(testId=testId,Quiz_cover=Imagefile,question=quizList[i][0],option1=quizList[i][1],option2=quizList[i][2],
-				option3=quizList[i][3],option4=quizList[i][4],answer=quizList[i][4],catogaries=quizList[0][0],
-				student=request.user)
-				ques.save()
-			messages.success(request,"Quiz submitted Successfully.")
-			print(quizList)
-			quizList=[]
-			return render(request,'blog/quiz_upload_cat.html')
+			return render(request,'blog/add_cover_photo.html')
+
+def add_cover_photo(request):
+	global quizList
+	global testId
+	if(request.method=="POST"):
+		Image=request.FILES["image"]
+		for i in range(1,len(quizList)):
+			ques=Test(testId=testId,Quiz_cover=Image,question=quizList[i][0],option1=quizList[i][1],option2=quizList[i][2],
+			option3=quizList[i][3],option4=quizList[i][4],answer=quizList[i][4],catogaries=quizList[0][0],
+			student=request.user)
+			ques.save()
+	messages.success(request,"Quiz submitted Successfully.")
+	quizList=[]
+	return render(request,'blog/quiz_upload_cat.html')

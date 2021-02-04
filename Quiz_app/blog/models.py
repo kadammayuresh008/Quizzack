@@ -36,4 +36,4 @@ class Test(quiz):
 	testId = models.CharField(max_length=500)
 	Quiz_cover = models.ImageField(upload_to ='QuizCover',null=True,blank=True) 
 	def __str__(self):
-		return str(self.testId)
+		return str(self.catogaries)

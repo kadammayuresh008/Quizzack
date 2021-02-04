@@ -3,13 +3,12 @@
 <h2>Recent topics</h2>
 <div class="row" style="text-align:center;">
   {% for que in quizs %}
-  <!-- {{que.Quiz_cover}} -->
     <div style="padding:2px;">
-    <a  href="{% url 'blog.quiz_page' que%}" style="text-decoration:None;color: black;">
+    <a  href="{% url 'blog.quiz_page' que.0 %}" style="text-decoration:None;color: black;">
       <div class="card" style="width: 18rem;height:15rem;margin:10px">
-        <img class="card-img-top" style="width:285px;" src="https://wallpapercave.com/wp/wp4961946.jpg" alt="Card image cap">
+        <img class="card-img-top" style="width:285px;height:9rem;" src="/media/{{que.1}}" alt="Card image cap">
         <div class="card-body rounded" style="background-color: rgb(216, 239, 245)">
-          <h3 class="card-title">{{que|capfirst}}</h3>
+          <h3 class="card-title">{{que.0}}</h3>
         </div>
         </div>
       </a>
@@ -17,48 +16,4 @@
      {% endfor %}
 </div>
 <div class="py-5"></div>
-<!-- <form action="./quiz_page" method="POST"> -->
-  <!-- <div class="col-sm-12">
-    <h1>Quiz Topics</h1> -->
-    <!-- <div class="col-sm-6">
-      <img src="https://tse4.mm.bing.net/th?id=OIP.qI8D4rseUazbXhvF9_DgXQHaDt&pid=Api&P=0&w=323&h=162" alt="First slide" style="height:450px;width:450px;">
-    </div> -->
-
-    <!-- <div>
-      {% for que in quizs %}
-       <div class="row" style="margin-left: 35%;padding: 2px;">
-      <h5><b>
-      <input type="radio" name="que" value="{{ que }}">
-      {{ que }}<br>
-      </b>
-    </h5>
-    </div>  
-      {% endfor %}
-    </div> -->
-  <!-- <div class="row col-sm-12" style="text-align:center;">
-  {% for que in quizs %}
-    <div style="padding:2px;">
-    <a  href="{% url 'blog.quiz_page' que%}" style="text-decoration:None;color: black;">
-      <div class="card" style="width: 16rem;">
-        <img class="card-img-top" src="https://wallpapercave.com/wp/wp4961946.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{que}}</h5>
-        </div>
-        </div>
-      </a>
-    </div>
-     {% endfor %}
-</div>
-  <div class="py-3"></div>
-  <div class="row" style="margin-left: 40%;">
-    <div class="col-xs-2">
-      <button type="submit" class="btn btn-block btn-info btn-md">Attempt Quiz</button>
-      <br>
-      <br>
-    </div>
-  </div>
-</div>
-<div class="py-3"></div>
-  </div> -->
-<!-- </form> -->
 {% endblock content %}
