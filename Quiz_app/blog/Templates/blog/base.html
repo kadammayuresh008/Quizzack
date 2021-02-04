@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="{% static 'blog/main1.css' %}">
 			{%if title%}
-				<title>Quiz App-{{title}}</title>
+				<title>Quizzack-{{title}}</title>
 			{%else%}
-				<title>Quiz App</title>
+				<title>Quizzack</title>
 			{% endif %}
 	</head>
   <body>
@@ -39,7 +39,7 @@
     </script>
     <nav class="navbar navbar-expand-sm navbar-dark bg-info sticky-top">
       <div>
-      <h3><a class="navbar-nav nav-link text-light" style="font-family:Dancing Script" href="{% url 'blog.home'%}">QUIZZY<span class="sr-only">(current)</span></a></h3>
+      <h3><a class="navbar-nav nav-link text-light" style="font-family:Dancing Script" href="{% url 'blog.home'%}">Quizzack<span class="sr-only">(current)</span></a></h3>
     </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
