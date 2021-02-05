@@ -28,9 +28,7 @@ Quizzack app generated with Django,HTML, CSS5 and Bootstrap
 <img src="./Snapshots/snap5.PNG" width=400px/>
 <img src="./Snapshots/snap6.PNG" width=400px/>
 <img src="./Snapshots/snap7.PNG" width=400px/>
-<img src="./Snapshots/snap8.PNG" width=400px/>
 <img src="./Snapshots/snap9.PNG" width=400px/>
-<img src="./Snapshots/snap10.PNG" width=400px/>
 <img src="./Snapshots/snap11.PNG" width=400px/>
 <img src="./Snapshots/snap12.PNG" width=400px/>
 <img src="./Snapshots/snap13.PNG" width=400px/>
