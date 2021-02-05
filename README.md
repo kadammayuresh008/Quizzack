@@ -18,20 +18,20 @@ Quizzack app generated with Django,HTML, CSS5 and Bootstrap
  ### Quizzack Screenshots
 
 <p float="left">
-<img src="./Snapshots/snap1.PNG" width=500px/>
-<img src="./Snapshots/snap2.PNG" width=500px/>
-<img src="./Snapshots/snap3.PNG" width=500px/>
-<img src="./Snapshots/snap4.PNG" width=500px/>
-<img src="./Snapshots/snap5.PNG" width=500px/>
-<img src="./Snapshots/snap6.PNG" width=500px/>
-<img src="./Snapshots/snap7.PNG" width=500px/>
-<img src="./Snapshots/snap8.PNG" width=500px/>
-<img src="./Snapshots/snap9.PNG" width=500px/>
-<img src="./Snapshots/snap10.PNG" width=500px/>
-<img src="./Snapshots/snap11.PNG" width=500px/>
-<img src="./Snapshots/snap12.PNG" width=500px/>
-<img src="./Snapshots/snap13.PNG" width=500px/>
-<img src="./Snapshots/snap14.PNG" width=500px/>
-<img src="./Snapshots/snap15.PNG" width=500px/>
-<img src="./Snapshots/snap16.PNG" width=500px/>
+<img src="./Snapshots/snap1.PNG" width=450px/>
+<img src="./Snapshots/snap2.PNG" width=450px/>
+<img src="./Snapshots/snap3.PNG" width=450px/>
+<img src="./Snapshots/snap4.PNG" width=450px/>
+<img src="./Snapshots/snap5.PNG" width=450px/>
+<img src="./Snapshots/snap6.PNG" width=450px/>
+<img src="./Snapshots/snap7.PNG" width=450px/>
+<img src="./Snapshots/snap8.PNG" width=450px/>
+<img src="./Snapshots/snap9.PNG" width=450px/>
+<img src="./Snapshots/snap10.PNG" width=450px/>
+<img src="./Snapshots/snap11.PNG" width=450px/>
+<img src="./Snapshots/snap12.PNG" width=450px/>
+<img src="./Snapshots/snap13.PNG" width=450px/>
+<img src="./Snapshots/snap14.PNG" width=450px/>
+<img src="./Snapshots/snap15.PNG" width=450px/>
+<img src="./Snapshots/snap16.PNG" width=450px/>
 </p>
