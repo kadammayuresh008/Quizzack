@@ -55,3 +55,5 @@ $ python manage.py runserver
 <img src="./Snapshots/snap15.PNG" width=400px/>
 <img src="./Snapshots/snap16.PNG" width=400px/>
 </p>
+
+### Show some :heart: and star the repo to support the project and feel free to fix bugs
