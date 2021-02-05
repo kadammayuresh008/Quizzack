@@ -1,6 +1,7 @@
 # Quizzack
 [![](https://img.shields.io/badge/Made_with-Django-green?style=for-the-badge&logo=django)](https://www.djangoproject.com/)
 [![](https://img.shields.io/badge/IDE-Visual_Studio_Code-red?style=for-the-badge&logo=visual-studio-code)](https://code.visualstudio.com/  "Visual Studio Code")
+
 Quizzack app generated with Django,HTML, CSS5 and Bootstrap
 
 ### Features!
