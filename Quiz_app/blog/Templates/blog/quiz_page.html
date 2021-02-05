@@ -4,7 +4,7 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
 <form action="../result" method="POST">
-  <div style="text-align: center"><h1>{{category}}</h1></div>
+  <div style="text-align: center"><h1>{{category|capfirst}}</h1></div>
   <input type="hidden" name="length" value="{{totalq}}">
   <input type="hidden" name="category" value="{{category}}">
   {% for que in quizs%}
@@ -39,6 +39,28 @@
       {{ que.option4 }}
     </p>
     </div>
+    <!-- <script>
+     $(function(){ /* to make sure the script runs after page load */
+
+$('a.read_more').click(function(event){ /* find all a.read_more elements and bind the following code to them */
+
+    event.preventDefault(); /* prevent the a from changing the url */
+    $(this).parents('.item').find('.more_text').show(); /* show the .more_text span */
+
+});
+
+});
+    </script>
+    <div class="col-md-3">
+      <div class="item"><br/>
+        <a href="#" class="read_more">Read More</a><br/>
+    
+        <span class="more_text">
+            This is the extra text, that will be shown after pressing the link above.
+        </span>
+    
+    </div>
+    </div> -->
     </div>
   <div class="py-3"></div>
   {% endfor %}

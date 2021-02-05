@@ -58,6 +58,7 @@ def quiz_page_result(request):
 	if request.method=='POST':
 		data=request.POST
 		datas= dict(data)
+		print(datas)
 		qid=[]
 		qans=[]
 		ans=[]
@@ -67,23 +68,26 @@ def quiz_page_result(request):
 				qid.append(int(key))
 				qans.append(datas[key][0])
 			except:
-				print("Crsf")
+				continue
 		for q in qid:
 			ans.append((quiz.objects.get(id = q)).answer)
-		total=len(ans)
-		for i in range(total):
-			if ans[i] == qans[i]:
-				score += 1
-		print(score)
-		eff=(score/total)*100
-	context={
+		total = len(ans)
+		if(total == 0):
+			score = 0
+			eff = 0
+		else:
+			for i in range(total):
+				if ans[i] == qans[i]:
+					score += 1
+			eff = (score/total)*100
+	context = {
+	'totalq':datas['length'][0],
 	'score':score,
 	'total':total,
 	'eff':eff,
 	'sub':total-score,
 	}
-	# print(score,total,eff)
-	attempts=Attempts(qAttempter=request.user,q_name=datas['category'][0],totalQue=datas['length'][0], attemptedQue=total, 
+	attempts = Attempts(qAttempter=request.user ,q_name=datas['category'][0],totalQue=datas['length'][0], attemptedQue=total, 
 	correct=score,accuracy=eff)
 	attempts.save()
 	return render(request,'blog/result.html',context)

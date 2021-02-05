@@ -1,3 +1,8 @@
+.body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
 .footer {
    position:absolute;
    bottom:0;
@@ -7,6 +12,7 @@
 }
 
 
+
 .card{
    border-radius: 4px;
    background: #fff;
@@ -14,8 +20,6 @@
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     /* padding:20px; */
     cursor: pointer;
-    width:20rem;
-    height: 20rem;
 }
 
 
@@ -33,7 +37,7 @@
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding:20px;
     cursor: pointer;
-    width:15rem;
+    width:14rem;
     height: 25rem;
     margin-bottom: 10px;
     } /*1rem = 16px*/
@@ -44,3 +48,39 @@
     }
 }
 
+
+
+/* .h1{
+    font-family: 'Times New Roman', Times, serif;   
+}
+
+.h4{
+    font-family: 'Times New Roman', Times, serif;   
+} */
+
+
+.carousel-inner .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    /* background-color: #555; */
+    /* color: white; */
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 3px solid rgb(28, 165, 184);
+    cursor: pointer;
+    border-radius:5px;
+    text-align: center;
+  }
+  
+  /* .carousel-inner .btn:hover {
+    background-color:rgb(28, 165, 184);
+    color:white;
+  } */
+
+  #started:hover{
+    background-color:rgb(28, 165, 184);
+    color:white;
+  }

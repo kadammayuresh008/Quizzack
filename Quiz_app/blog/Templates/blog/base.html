@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="{% static 'blog/main1.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'blog/main2.css' %}">
 			{%if title%}
 				<title>Quizzack-{{title}}</title>
 			{%else%}
@@ -17,13 +17,6 @@
 	</head>
   <body>
     <script>
-      // var loadFile = function(event) {
-      //   var output = document.getElementById('output');
-      //   output.src = URL.createObjectURL(event.target.files[0]);
-      //   output.onload = function() {
-      //     URL.revokeObjectURL(output.src) // free memory
-      //   }
-      // };
       var loadFile = function(event) {
     var output = document.getElementById('output');
     output.style.height="250px"
@@ -35,7 +28,7 @@
       URL.revokeObjectURL(output.src) // free memory
     }
   };
-      
+    
     </script>
     <nav class="navbar navbar-expand-sm navbar-dark bg-info sticky-top">
       <div>
@@ -91,7 +84,7 @@
   <div class="py-3"></div>
   <div class="col-sm-12" style="bottom:0;">
     <footer class="bg-info row" style="justify-content: space-evenly;">
-      <p  style="color:white;"> Copyright © 2020-21 Quizzy, Inc </p>
+      <p  style="color:white;"> Copyright © 2020-21 Quizzack, Inc </p>
       <!-- <p  style="color:white;"> Email : quizzyteam@gmail.com </p>
       <p style="color:white;"> Telephone No : 2522621715</p> -->
       <p  style="color:white;"> Developed by Mayuresh Kadam </p>

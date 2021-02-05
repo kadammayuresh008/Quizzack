@@ -12,6 +12,5 @@ urlpatterns = [
     path('quiz_upload_cat/Upload',views.quiz_upload, name='blog.quiz_upload'),
     path('quiz_upload_cat/Uploaded',views.add_quiz_question, name='blog.add_quiz_question'),
     path('quiz_upload_cat/add_cover_photo',views.add_cover_photo, name='blog.add_cover_photo'),
-    # add_cover_photo
 ]
 

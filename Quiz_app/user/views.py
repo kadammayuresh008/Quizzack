@@ -35,10 +35,6 @@ def profile(request):
 		if p_form.is_valid():
 			data1 = p_form.cleaned_data
 			Profile.objects.filter(user=request.user).update(image=data1['image'])
-		# user.username = data['username']
-		# user.email = data['email']
-		# user.save()
-		# newprofile= Profile(user=)
 
 
 	a=Attempts.objects.filter(qAttempter=request.user).order_by('attemptedtime')
