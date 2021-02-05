@@ -17,6 +17,25 @@ Quizzack app generated with Django,HTML, CSS5 and Bootstrap
   * Framework: Django
   * Database: sqlite
   
+### Getting Started
+
+The first thing to do is to clone the repository:
+
+```sh
+$ git init
+$ git clone "https://github.com/kadammayuresh008/Quizzack.git"
+$ cd Quizzack
+```
+Activating virtualenv and Starting the project
+```sh
+$ cd Scripts
+$ activate
+$ cd..
+$ cd Quiz_app
+$ python manage.py 
+$ python manage.py migrate
+$ python manage.py runserver
+```
   
  ### Quizzack Screenshots
 
